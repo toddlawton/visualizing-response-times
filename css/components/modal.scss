@@ -8,33 +8,46 @@
 .modal {
     color: #fff;
     text-align: center;
+    -webkit-font-smoothing: subpixel-antialiased;
     label {
         @extend .entity-title;
         color: #fff;
         padding: 0;
-        margin-bottom: 12px;
+        margin-bottom: 24px;
     }
     label, input[type="text"] {
         display: block;
         width: 100%;
     }
-    input {
-        margin-bottom: 24px;
-    }
     input, button {
         color: #fff;
         background: none;
-        padding: 8px;
-        border: 1px solid #fff;
+        padding: 8px 0 8px 0;
+        border: 1px solid rgba(255,255,255,0.3);
+        text-align: center;
+        border-radius: 15px;
         @include vendor-prefix(appearance, none);
+        &:focus {
+            outline: none;
+            border: 1px solid rgba(255,255,255,1);
+        }
+    }
+    input {
+        margin-bottom: 48px;
+    }
+    input:last-of-type {
+        // margin-bottom: 64px;
     }
     button {
         width: 33.3%;
         margin: 0;
         float: left;
+        &:hover {
+            border: 1px solid rgba(255,255,255,1);
+        }
     }
 }
 
 .avgrund-ready.avgrund-active .avgrund-overlay {
-    opacity: 0.85;
+    opacity: 0.9;
 }

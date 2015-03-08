@@ -17,6 +17,7 @@ app.views.responseView = Backbone.View.extend({
 
     initialize: function() {
         var self = this;
+        
         this.firstRun = true;
         this.sizeMultiplier = 0.05; // Multiply the width and height of the response entity by the response time and this value
         this.refreshInterval = 5000; // Wait this number of milliseconds before re-sending the request
@@ -30,36 +31,40 @@ app.views.responseView = Backbone.View.extend({
     },
 
     render: function() {
-        var updatedSize =  this.model.get('responseTime') * this.sizeMultiplier;
         this.$el.html( this.responseViewTemplate( this.model.attributes ) );
+
         this.$orbiter = this.$el.find('.orbiter');
         this.$orbiterContainer = this.$('.orbiter-container');
         this.$responseTimeLabel = this.$el.find('.entity-subtitle');
+
         this.sendRequest( this.model.get('url') ); // Send a request immediately upon initialization
+        
         return this;
     },
 
     edit: function() {
         var self = this;
+        this.$modal = '';
         this.dialog = this.$el.avgrund({
-            height: 250,
+            height: 300,
             holderClass: 'modal-container',
             enableStackAnimation: false,
             openOnEvent: false,
             onBlurContainer: '.container',
             onReady: function() {
-                var $modal = $('.modal-container');
-                $modal.html( self.responseEditTemplate( self.model.attributes ) );
-                $modal.find('#entity-edit-save').on('click', $.proxy(self.saveEditModal, self));
-                $modal.find('#entity-edit-cancel').on('click', self.closeEditModal);
-                $modal.find('#entity-edit-delete').on('click', $.proxy(self.deleteEditModal, self));
+                self.$modal = $('.modal-container');
+                self.$modal.html( self.responseEditTemplate( self.model.attributes ) );
+                self.bindModalEvents();
             },
             template: ''
         });
     },
 
     bindModalEvents: function() {
-
+        var self = this;
+        this.$modal.find('#entity-edit-save').on('click', $.proxy(self.saveEditModal, self));
+        this.$modal.find('#entity-edit-cancel').on('click', self.closeEditModal);
+        this.$modal.find('#entity-edit-delete').on('click', $.proxy(self.deleteEditModal, self));
     },
 
     closeEditModal: function() {
