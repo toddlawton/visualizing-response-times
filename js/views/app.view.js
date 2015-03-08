@@ -1,6 +1,6 @@
 var app =  app || {};
 
-app.AppView = Backbone.View.extend({
+app.views.appView = Backbone.View.extend({
     
     el: '.container',
 
@@ -9,35 +9,46 @@ app.AppView = Backbone.View.extend({
     },
 
     initialize: function() {
-        this.collection = new app.ResponseEntityCollection();
+        app.responseEntities = new app.collections.responseEntities();
         var self = this;
         this.render();
-        this.collection.listenTo(this.collection, 'add', function(item){
+        
+        app.responseEntities.listenTo(app.responseEntities, 'add', function(item){
             self.renderEntity(item);
         });
-        this.collection.add( new app.ResponseEntity({url: 'http://secure.alphasights.com/health.json', title: 'AlphaSights'}) );
 
+        // app.responseEntities.add( new app.models.responseEntity({url: 'http://secure.alphasights.com/health.json', title: 'AlphaSights'}) );
 
-        setTimeout(function(){
-            self.collection.add( new app.ResponseEntity({url: 'https://status.heroku.com', title: 'Heroku'}) );    
-        }, 2500);
+// app.responseEntities.add( new app.models.responseEntity({url: 'https://status.heroku.com', title: 'Heroku'}) );    
+        // setTimeout(function(){
+        //     app.responseEntities.add( new app.models.responseEntity({url: 'https://status.heroku.com', title: 'Heroku'}) );    
+        // }, 2500);
 
-        setTimeout(function(){
-            self.collection.add( new app.ResponseEntity({url: 'https://google.com', title: 'Google'}) );    
-        }, 5000);
+        // setTimeout(function(){
+        //     app.responseEntities.add( new app.models.responseEntity({url: 'https://google.com', title: 'Google'}) );    
+        // }, 5000);
+
+        // app.responseEntities.each(function(entity){
+        //     entity.save();
+        // });
+        app.responseEntities.fetch()
     },
 
     render: function() {
-        this.collection.each(function(item){
+        app.responseEntities.each(function(item){
             this.renderEntity(item);
         }, this);
     },
 
     renderEntity: function(item) {
-        var entityView = new app.ResponseView({
+        var entityView = new app.views.responseView({
             model: item
         });
         this.$el.append(entityView.render().el);
+    },
+
+    saveEntity: function() {
+
     }
 
 });

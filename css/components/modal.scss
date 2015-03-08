@@ -1,0 +1,40 @@
+.avgrund-ready .modal-container {
+   padding: 24px;
+   box-sizing: border-box;
+   box-shadow: none;
+   background: none;
+}
+
+.modal {
+    color: #fff;
+    text-align: center;
+    label {
+        @extend .entity-title;
+        color: #fff;
+        padding: 0;
+        margin-bottom: 12px;
+    }
+    label, input[type="text"] {
+        display: block;
+        width: 100%;
+    }
+    input {
+        margin-bottom: 24px;
+    }
+    input, button {
+        color: #fff;
+        background: none;
+        padding: 8px;
+        border: 1px solid #fff;
+        @include vendor-prefix(appearance, none);
+    }
+    button {
+        width: 33.3%;
+        margin: 0;
+        float: left;
+    }
+}
+
+.avgrund-ready.avgrund-active .avgrund-overlay {
+    opacity: 0.85;
+}

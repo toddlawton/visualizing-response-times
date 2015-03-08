@@ -1,4 +1,4 @@
-var hsv2rgb = function(h, s, v) {
+app.utils.hsv2rgb = function(h, s, v) {
   // adapted from http://schinckel.net/2012/01/10/hsv-to-rgb-in-javascript/
   var rgb, i, data = [];
   if (s === 0) {

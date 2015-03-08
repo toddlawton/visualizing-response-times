@@ -1,5 +1,11 @@
 var app = app || {};
 
-app.ResponseEntityCollection = Backbone.Collection.extend({
-    model: app.ResponseEntity
+app.collections.responseEntities = Backbone.Collection.extend({
+
+    model: app.models.responseEntity,
+
+    localStorage: new Backbone.LocalStorage('responseEntities')
+
 });
+
+app.responseEntities = new app.collections.responseEntities();

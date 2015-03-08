@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.ResponseEntity = Backbone.Model.extend({
+app.models.responseEntity = Backbone.Model.extend({
     defaults: {
         url: '',
         title: '',

@@ -2,6 +2,11 @@
  * Layout: Main
  */
 
+body {
+    background: #000;
+    margin: 0;
+}
+
 .container, .response-entity {
     @include flexbox();
     @include flex-wrap(wrap);
@@ -12,6 +17,7 @@
 
 .container {
     min-height: 100%;
+    background: #fff;
     @include flex-direction(row);
 }
 

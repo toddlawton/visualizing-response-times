@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.ResponseView = Backbone.View.extend({
+app.views.responseView = Backbone.View.extend({
 
     tagName: 'div',
 
@@ -8,18 +8,25 @@ app.ResponseView = Backbone.View.extend({
 
     responseViewTemplate: _.template($('#response-entity-template').html()),
 
-    events: {},
+    responseEditTemplate: _.template($('#response-entity-edit-template').html()),
+
+    events: {
+        "click .orbiter-container": "edit",
+        "click #entity-edit-cancel": "closeEditModal"
+    },
 
     initialize: function() {
         var self = this;
         this.firstRun = true;
         this.sizeMultiplier = 0.05; // Multiply the width and height of the response entity by the response time and this value
         this.refreshInterval = 5000; // Wait this number of milliseconds before re-sending the request
-        this.maximumResponse = 120; // At this speed the speed will be 0
+        this.maximumResponse = 140; // At this reponse time the speed will be nearly 0
         
         this.refresh = setInterval(function(){
             self.sendRequest( self.model.get('url') );
         }, self.refreshInterval);
+
+        $('#entity-edit-cancel').on('click', self.closeEditModal);
     },
 
     render: function() {
@@ -30,6 +37,52 @@ app.ResponseView = Backbone.View.extend({
         this.$responseTimeLabel = this.$el.find('.entity-subtitle');
         this.sendRequest( this.model.get('url') ); // Send a request immediately upon initialization
         return this;
+    },
+
+    edit: function() {
+        var self = this;
+        this.dialog = this.$el.avgrund({
+            height: 250,
+            holderClass: 'modal-container',
+            enableStackAnimation: false,
+            openOnEvent: false,
+            onBlurContainer: '.container',
+            onReady: function() {
+                var $modal = $('.modal-container');
+                $modal.html( self.responseEditTemplate( self.model.attributes ) );
+                $modal.find('#entity-edit-save').on('click', $.proxy(self.saveEditModal, self));
+                $modal.find('#entity-edit-cancel').on('click', self.closeEditModal);
+                $modal.find('#entity-edit-delete').on('click', $.proxy(self.deleteEditModal, self));
+            },
+            template: ''
+        });
+    },
+
+    bindModalEvents: function() {
+
+    },
+
+    closeEditModal: function() {
+        $('.avgrund-overlay').trigger('click');
+    },
+
+    saveEditModal: function() {
+        var self = this;
+        $('.modal-container input').each(function(){
+            var modelAttribute = $(this).data('model-attr');
+            if (modelAttribute) {
+                self.model.set(modelAttribute, $(this).val());
+                self.model.save();
+            }
+        });
+        self.render();
+        this.closeEditModal();
+    },
+
+    deleteEditModal: function() {
+        this.model.destroy();
+        this.remove();
+        this.closeEditModal();
     },
 
     /**
@@ -128,7 +181,7 @@ app.ResponseView = Backbone.View.extend({
             s = 0.7,
             v = 0.9;
 
-        this.orbiterColor = hsv2rgb(h, s, v);
+        this.orbiterColor = app.utils.hsv2rgb(h, s, v);
 
         if (this.firstRun) {
             this.startOrbiterAnimation();

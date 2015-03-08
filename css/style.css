@@ -28,7 +28,7 @@ body {
   -moz-transition: 0.7s ease all;
   -o-transition: 0.7s ease all; }
 
-.entity-title {
+.entity-title, .modal label {
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -37,7 +37,7 @@ body {
   color: #111;
   margin-bottom: 0; }
 
-.entity-title, .entity-subtitle {
+.entity-title, .modal label, .entity-subtitle {
   padding-left: 25px;
   padding-right: 25px; }
 
@@ -76,9 +76,49 @@ body {
   -moz-transform: scale(0.5);
   -o-transform: scale(0.5); }
 
+.avgrund-ready .modal-container {
+  padding: 24px;
+  box-sizing: border-box;
+  box-shadow: none;
+  background: none; }
+
+.modal {
+  color: #fff;
+  text-align: center; }
+  .modal label {
+    color: #fff;
+    padding: 0;
+    margin-bottom: 12px; }
+  .modal label, .modal input[type="text"] {
+    display: block;
+    width: 100%; }
+  .modal input {
+    margin-bottom: 24px; }
+  .modal input, .modal button {
+    color: #fff;
+    background: none;
+    padding: 8px;
+    border: 1px solid #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none; }
+  .modal button {
+    width: 33.3%;
+    margin: 0;
+    float: left; }
+
+.avgrund-ready.avgrund-active .avgrund-overlay {
+  opacity: 0.85; }
+
 /**
  * Layout: Main
  */
+body {
+  background: #000;
+  margin: 0; }
+
 .container, .response-entity {
   display: -webkit-box;
   display: -webkit-flex;
@@ -106,6 +146,7 @@ body {
 
 .container {
   min-height: 100%;
+  background: #fff;
   -webkit-box-direction: normal;
   -webkit-box-orient: horizontal;
   -webkit-flex-direction: row;
