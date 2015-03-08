@@ -1,0 +1,10 @@
+/**
+ * Base: Typography
+ */
+
+body {
+    font-family: $primary-font-family;
+    font-size: 12px;
+    color: #666;
+    -webkit-font-smoothing: antialiased;
+}

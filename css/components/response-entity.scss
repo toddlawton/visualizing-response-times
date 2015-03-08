@@ -1,0 +1,49 @@
+/**
+ * Components: Response Entity
+ */
+
+.response-entity {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    @include vendor-prefix(transition, 0.7s ease all);
+}
+
+.entity-title {
+    font-family: $secondary-font-family;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #111;
+    margin-bottom: 0;
+}
+
+.entity-title, .entity-subtitle {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.orbiter-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -125px;
+    margin-top: -125px;
+    border: 1px solid #efefef;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+.orbiter {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: -135px;
+    margin-top: -10px;
+    background: $color-pomegranate;
+    border-radius: 100%;
+    @include vendor-prefix(transform, translateZ(0));
+    @include vendor-prefix(transition, 0.25s ease transform 0.25s ease background-color);
+    @include vendor-prefix(transform, scale(0.5));
+}

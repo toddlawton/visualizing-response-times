@@ -1,0 +1,22 @@
+{
+  "name": "visualizing-response-times",
+  "version": "0.0.0",
+  "authors": [
+    "Todd Beauchamp <toddbee@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.3",
+    "gsap": "greensock/GreenSock-JS#~1.16.0"
+  }
+}

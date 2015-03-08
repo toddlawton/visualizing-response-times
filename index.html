@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Visualizing Response Times</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class="container"></div>
+
+        <!-- Underscore Templates -->
+        <script type="text/template" id="response-entity-template">
+            <div class="orbiter-container"></div>
+            <div class="orbiter"></div>
+            <h2 class="entity-title"><%= title %></h2>
+            <p class="entity-subtitle"><%= responseTime %>ms</p>
+        </script>
+
+        <!-- Vendor Dependencies -->
+        <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="vendor/underscore/underscore-min.js"></script>
+        <script type="text/javascript" src="vendor/backbone/backbone.js"></script>
+
+        <!-- Utils -->
+        <script type="text/javascript" src="js/utils/utils.requestAnimationFramePolyfill.js"></script>
+        <script type="text/javascript" src="js/utils/utils.hsv2rgb.js"></script>
+
+        <!-- Models -->
+        <script type="text/javascript" src="js/models/response.entity.model.js"></script>
+
+        <!-- Collections -->
+        <script type="text/javascript" src="js/collections/response.entity.collection.js"></script>        
+
+        <!-- Views -->
+        <script type="text/javascript" src="js/views/response.view.js"></script>
+        <script type="text/javascript" src="js/views/app.view.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>

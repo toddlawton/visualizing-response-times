@@ -1,0 +1,20 @@
+/**
+ * Layout: Main
+ */
+
+.container, .response-entity {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+    @include align-items(center);
+    @include align-content(center);
+}
+
+.container {
+    min-height: 100%;
+    @include flex-direction(row);
+}
+
+.response-entity {
+    @include flex-direction(column);
+}
