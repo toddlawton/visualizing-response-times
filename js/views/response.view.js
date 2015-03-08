@@ -1,5 +1,3 @@
-var app = app || {};
-
 app.views.responseView = Backbone.View.extend({
 
     tagName: 'div',
@@ -17,7 +15,7 @@ app.views.responseView = Backbone.View.extend({
 
     initialize: function() {
         var self = this;
-        
+
         this.firstRun = true;
         this.sizeMultiplier = 0.05; // Multiply the width and height of the response entity by the response time and this value
         this.refreshInterval = 5000; // Wait this number of milliseconds before re-sending the request
@@ -31,6 +29,7 @@ app.views.responseView = Backbone.View.extend({
     },
 
     render: function() {
+        this.model.set('newEntity', false);
         this.$el.html( this.responseViewTemplate( this.model.attributes ) );
 
         this.$orbiter = this.$el.find('.orbiter');
@@ -46,7 +45,7 @@ app.views.responseView = Backbone.View.extend({
         var self = this;
         this.$modal = '';
         this.dialog = this.$el.avgrund({
-            height: 300,
+            height: 320,
             holderClass: 'modal-container',
             enableStackAnimation: false,
             openOnEvent: false,
@@ -143,7 +142,7 @@ app.views.responseView = Backbone.View.extend({
         }
 
         function animloop(){
-          window.requestAnimFrame(animloop);
+          window.requestAnimationFrame(animloop);
           self.updateOrbiter();
         };
 

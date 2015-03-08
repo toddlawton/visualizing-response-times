@@ -1,8 +1,8 @@
-var app =  app || {};
-
 app.views.appView = Backbone.View.extend({
     
     el: '.container',
+
+    responseEditTemplate: _.template($('#response-entity-edit-template').html()),
 
     events: {
 
@@ -11,6 +11,8 @@ app.views.appView = Backbone.View.extend({
     initialize: function() {
         app.responseEntities = new app.collections.responseEntities();
         var self = this;
+        var headerView = new app.views.headerView({ el: $('.header') });
+
         this.render();
         
         app.responseEntities.listenTo(app.responseEntities, 'add', function(item){

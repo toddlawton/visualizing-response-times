@@ -1,5 +1,3 @@
-var app = app || {};
-
 app.collections.responseEntities = Backbone.Collection.extend({
 
     model: app.models.responseEntity,

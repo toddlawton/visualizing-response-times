@@ -16,33 +16,28 @@
     letter-spacing: 2px;
     font-weight: 400;
     font-size: 14px;
-    color: #111;
-    margin-bottom: 0;
 }
 
-.entity-title, .entity-subtitle {
-    padding-left: 25px;
-    padding-right: 25px;
-}
 .orbiter-container {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -125px;
-    margin-top: -125px;
+    margin-left: -$response-entity-size/2;
+    margin-top: -$response-entity-size/2;
     border: 1px solid #efefef;
-    width: 250px;
-    height: 250px;
+    width: $response-entity-size;
+    height: $response-entity-size;
     border-radius: 100%;
     cursor: pointer;
 }
+
 .orbiter {
     position: absolute;
     width: 20px;
     height: 20px;
     margin-left: -135px;
     margin-top: -10px;
-    background: $color-pomegranate;
+    background: none;
     border-radius: 100%;
     @include vendor-prefix(transform, translateZ(0));
     @include vendor-prefix(transition, 0.25s ease transform 0.25s ease background-color);

@@ -36,12 +36,17 @@
         margin-bottom: 48px;
     }
     input:last-of-type {
-        // margin-bottom: 64px;
+        margin-bottom: 64px;
     }
     button {
-        width: 33.3%;
-        margin: 0;
-        float: left;
+        display: inline-block;
+        width: 30%;
+        margin: 0 auto;
+        margin-right: 4%;
+        cursor: pointer;
+        &:last-of-type {
+            margin-right: auto;
+        }
         &:hover {
             border: 1px solid rgba(255,255,255,1);
         }

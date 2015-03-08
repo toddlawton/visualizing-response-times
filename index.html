@@ -6,6 +6,11 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <div class="header">
+            <div class="nav-right">
+                <button class="create-new-entity">Add</button>
+            </div>
+        </div>
         <div class="container"></div>
 
         <!-- Underscore Templates -->
@@ -19,13 +24,15 @@
         <script type="text/template" id="response-entity-edit-template">
             <div class="modal">
                 <label for="entity-title">Entity Label</label>
-                <input id="entity-title" data-model-attr="title" type="text" value="<%= title %>">
+                <input id="entity-title" data-model-attr="title" type="text" value="<%= title %>" placeholder="ex. Heroku" />
 
                 <label for="entity-url">URL</label>
-                <input id="entity-url" data-model-attr="url" type="text" value="<%= url %>">
+                <input id="entity-url" data-model-attr="url" type="text" value="<%= url %>" placeholder="https://status.heroku.com" />
                 
                 <button id="entity-edit-save">Save</button>
+                <% if (!newEntity) { %>
                 <button id="entity-edit-delete">Delete</button>
+                <% } %>
                 <button id="entity-edit-cancel">Cancel</button>
             </div>
         </script>
@@ -53,6 +60,7 @@
 
         <!-- Views -->
         <script type="text/javascript" src="js/views/response.view.js"></script>
+        <script type="text/javascript" src="js/views/header.view.js"></script>
         <script type="text/javascript" src="js/views/app.view.js"></script>
         <script type="text/javascript" src="js/app.startup.js"></script>
     </body>

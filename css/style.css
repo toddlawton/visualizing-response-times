@@ -33,13 +33,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 400;
-  font-size: 14px;
-  color: #111;
-  margin-bottom: 0; }
-
-.entity-title, .modal label, .entity-subtitle {
-  padding-left: 25px;
-  padding-right: 25px; }
+  font-size: 14px; }
 
 .orbiter-container {
   position: absolute;
@@ -59,7 +53,7 @@ body {
   height: 20px;
   margin-left: -135px;
   margin-top: -10px;
-  background: #c0392b;
+  background: none;
   border-radius: 100%;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
@@ -111,15 +105,41 @@ body {
       border: 1px solid white; }
   .modal input {
     margin-bottom: 48px; }
+  .modal input:last-of-type {
+    margin-bottom: 64px; }
   .modal button {
-    width: 33.3%;
-    margin: 0;
-    float: left; }
+    display: inline-block;
+    width: 30%;
+    margin: 0 auto;
+    margin-right: 4%;
+    cursor: pointer; }
+    .modal button:last-of-type {
+      margin-right: auto; }
     .modal button:hover {
       border: 1px solid white; }
 
 .avgrund-ready.avgrund-active .avgrund-overlay {
   opacity: 0.9; }
+
+/**
+ * Components: Button
+ */
+button, .button {
+  color: #666;
+  padding: 8px 16px;
+  margin: 16px 24px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  background: none;
+  box-shadow: none;
+  outline: none;
+  border: 1px solid #efefef;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none; }
 
 /**
  * Layout: Main
@@ -170,5 +190,18 @@ body {
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
+
+/**
+ * Layout: Header
+ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none; }
+
+.nav-right {
+  float: right; }
 
 /*# sourceMappingURL=style.css.map */
