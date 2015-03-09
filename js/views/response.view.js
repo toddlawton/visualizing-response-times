@@ -141,6 +141,8 @@ app.views.responseView = Backbone.View.extend({
             });
         }
 
+        this.$el.addClass('visible');
+
         function animloop(){
           window.requestAnimationFrame(animloop);
           self.updateOrbiter();
