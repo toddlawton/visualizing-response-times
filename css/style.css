@@ -27,11 +27,11 @@ body {
   -ms-transform: scale(0);
   -moz-transform: scale(0);
   -o-transform: scale(0);
-  transition: 0.7s ease all;
-  -webkit-transition: 0.7s ease all;
-  -ms-transition: 0.7s ease all;
-  -moz-transition: 0.7s ease all;
-  -o-transition: 0.7s ease all; }
+  transition: 0.6s ease all;
+  -webkit-transition: 0.6s ease all;
+  -ms-transition: 0.6s ease all;
+  -moz-transition: 0.6s ease all;
+  -o-transition: 0.6s ease all; }
   .response-entity.visible {
     transform: scale(1);
     -webkit-transform: scale(1);

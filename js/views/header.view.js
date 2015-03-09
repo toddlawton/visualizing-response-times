@@ -9,7 +9,7 @@ app.views.headerView = Backbone.View.extend({
     },
 
     initialize: function() {
-        console.log(this);
+        
     },
 
     render: function() {},

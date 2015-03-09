@@ -23,17 +23,19 @@
 
         <script type="text/template" id="response-entity-edit-template">
             <div class="modal">
-                <label for="entity-title">Entity Label</label>
-                <input id="entity-title" data-model-attr="title" type="text" value="<%= title %>" placeholder="ex. Heroku" />
+                <form id="response-entity-edit-form">
+                    <label for="entity-title">Entity Label</label>
+                    <input id="entity-title" data-model-attr="title" type="text" value="<%= title %>" placeholder="ex. Heroku" />
 
-                <label for="entity-url">URL</label>
-                <input id="entity-url" data-model-attr="url" type="text" value="<%= url %>" placeholder="https://status.heroku.com" />
-                
-                <button id="entity-edit-save">Save</button>
-                <% if (!newEntity) { %>
-                <button id="entity-edit-delete">Delete</button>
-                <% } %>
-                <button id="entity-edit-cancel">Cancel</button>
+                    <label for="entity-url">URL</label>
+                    <input id="entity-url" data-model-attr="url" type="text" value="<%= url %>" placeholder="https://status.heroku.com" />
+                    
+                    <button id="entity-edit-save">Save</button>
+                    <% if (!newEntity) { %>
+                    <button id="entity-edit-delete">Delete</button>
+                    <% } %>
+                    <button id="entity-edit-cancel">Cancel</button>
+                </form>
             </div>
         </script>
 
@@ -47,6 +49,7 @@
         <!-- App -->
         <script type="text/javascript" src="js/app.namespace.js"></script>
         <script type="text/javascript" src="js/app.router.js"></script>
+        <script type="text/javascript" src="js/app.configs.js"></script>
 
         <!-- Utils -->
         <script type="text/javascript" src="js/utils/utils.requestAnimationFramePolyfill.js"></script>
@@ -62,6 +65,8 @@
         <script type="text/javascript" src="js/views/response.view.js"></script>
         <script type="text/javascript" src="js/views/header.view.js"></script>
         <script type="text/javascript" src="js/views/app.view.js"></script>
+
+        <!-- Startup -->
         <script type="text/javascript" src="js/app.startup.js"></script>
     </body>
 </html>

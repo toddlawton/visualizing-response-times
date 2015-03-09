@@ -17,9 +17,8 @@ app.views.responseView = Backbone.View.extend({
         var self = this;
 
         this.firstRun = true;
-        this.sizeMultiplier = 0.05; // Multiply the width and height of the response entity by the response time and this value
-        this.refreshInterval = 5000; // Wait this number of milliseconds before re-sending the request
-        this.maximumResponse = 140; // At this reponse time the speed will be nearly 0
+        this.refreshInterval = app.configs.pingRefreshInterval; // Wait this number of milliseconds before re-sending the request
+        this.maximumResponse = app.configs.responseThreshold; // At this reponse time the speed will be nearly 0
         
         this.refresh = setInterval(function(){
             self.sendRequest( self.model.get('url') );
@@ -45,7 +44,7 @@ app.views.responseView = Backbone.View.extend({
         var self = this;
         this.$modal = '';
         this.dialog = this.$el.avgrund({
-            height: 320,
+            height: 340,
             holderClass: 'modal-container',
             enableStackAnimation: false,
             openOnEvent: false,

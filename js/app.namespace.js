@@ -1,4 +1,5 @@
 var app = {
+    configs: {},
     router: {},
     models: {},
     collections: {},

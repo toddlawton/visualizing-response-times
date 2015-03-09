@@ -20,19 +20,9 @@ app.views.appView = Backbone.View.extend({
         });
 
         // app.responseEntities.add( new app.models.responseEntity({url: 'http://secure.alphasights.com/health.json', title: 'AlphaSights'}) );
+        // app.responseEntities.add( new app.models.responseEntity({url: 'https://status.heroku.com', title: 'Heroku'}) );    
+        // app.responseEntities.add( new app.models.responseEntity({url: 'https://google.com', title: 'Google'}) );    
 
-// app.responseEntities.add( new app.models.responseEntity({url: 'https://status.heroku.com', title: 'Heroku'}) );    
-        // setTimeout(function(){
-        //     app.responseEntities.add( new app.models.responseEntity({url: 'https://status.heroku.com', title: 'Heroku'}) );    
-        // }, 2500);
-
-        // setTimeout(function(){
-        //     app.responseEntities.add( new app.models.responseEntity({url: 'https://google.com', title: 'Google'}) );    
-        // }, 5000);
-
-        // app.responseEntities.each(function(entity){
-        //     entity.save();
-        // });
         app.responseEntities.fetch()
     },
 
