@@ -170,7 +170,7 @@ app.views.responseView = Backbone.View.extend({
         responseTime = Math.min(this.maximumResponse, responseTime);
 
         this.speedRatio = 1-(responseTime/this.maximumResponse); // 0 to 1
-        this.scaleRatio = (responseTime/this.maximumResponse);
+        this.scaleRatio = (app.configs.orbiterMinimumScale*0.01)+(responseTime/this.maximumResponse);
         
         if (this.speedRatio === 0) { this.speedRatio = 0.025; }
         this.intervalRefreshRate = 16; 
@@ -182,8 +182,8 @@ app.views.responseView = Backbone.View.extend({
         };
 
         // Adjust hue of orbiter based on the response time
-        var h = Math.floor(120*(1-this.scaleRatio)),
-            s = 0.7,
+        var h = Math.floor(120*(1-(responseTime/this.maximumResponse))),
+            s = 0.75,
             v = 0.9;
 
         this.orbiterColor = app.utils.hsv2rgb(h, s, v);

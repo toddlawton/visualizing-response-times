@@ -23,19 +23,17 @@
 
         <script type="text/template" id="response-entity-edit-template">
             <div class="modal">
-                <form id="response-entity-edit-form">
-                    <label for="entity-title">Entity Label</label>
-                    <input id="entity-title" data-model-attr="title" type="text" value="<%= title %>" placeholder="ex. Heroku" />
+                <label for="entity-title">Entity Label</label>
+                <input id="entity-title" data-model-attr="title" type="text" value="<%= title %>" placeholder="ex. Heroku" />
 
-                    <label for="entity-url">URL</label>
-                    <input id="entity-url" data-model-attr="url" type="text" value="<%= url %>" placeholder="https://status.heroku.com" />
-                    
-                    <button id="entity-edit-save">Save</button>
-                    <% if (!newEntity) { %>
-                    <button id="entity-edit-delete">Delete</button>
-                    <% } %>
-                    <button id="entity-edit-cancel">Cancel</button>
-                </form>
+                <label for="entity-url">URL</label>
+                <input id="entity-url" data-model-attr="url" type="text" value="<%= url %>" placeholder="https://status.heroku.com" />
+                
+                <button id="entity-edit-save">Save</button>
+                <% if (!newEntity) { %>
+                <button id="entity-edit-delete">Delete</button>
+                <% } %>
+                <button id="entity-edit-cancel">Cancel</button>
             </div>
         </script>
 
