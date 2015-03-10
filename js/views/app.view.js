@@ -4,9 +4,7 @@ app.views.appView = Backbone.View.extend({
 
     responseEditTemplate: _.template($('#response-entity-edit-template').html()),
 
-    events: {
-
-    },
+    events: {},
 
     initialize: function() {
         app.responseEntities = new app.collections.responseEntities();
@@ -19,11 +17,23 @@ app.views.appView = Backbone.View.extend({
             self.renderEntity(item);
         });
 
-        // app.responseEntities.add( new app.models.responseEntity({url: 'http://secure.alphasights.com/health.json', title: 'AlphaSights'}) );
-        // app.responseEntities.add( new app.models.responseEntity({url: 'https://status.heroku.com', title: 'Heroku'}) );    
-        // app.responseEntities.add( new app.models.responseEntity({url: 'https://google.com', title: 'Google'}) );    
-
         app.responseEntities.fetch()
+
+        // For demonstration purposes, if no entity exists in localStorage, 
+        // add several new ones
+        
+        if (app.responseEntities.length === 0) {
+            var demoEntities = [
+                {url: 'http://secure.alphasights.com/health.json', title: 'AlphaSights'},
+                {url: 'https://status.heroku.com', title: 'Heroku'},
+                {url: 'https://google.com', title: 'Google'}
+            ];
+            demoEntities.forEach(function(entity){
+                newEntity = new app.models.responseEntity(entity);
+                app.responseEntities.add(entity);
+            });
+        }
+
     },
 
     render: function() {
@@ -37,10 +47,6 @@ app.views.appView = Backbone.View.extend({
             model: item
         });
         this.$el.append(entityView.render().el);
-    },
-
-    saveEntity: function() {
-
     }
 
 });

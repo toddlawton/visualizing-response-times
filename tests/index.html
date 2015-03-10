@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="../vendor/mocha/mocha.css">
     <style>
        .ui-dialog{display:none !important;}
+       .container{display:none;}
     </style>
 </head>
 <body>
     <div id="mocha"></div>
+    <div class="container"></div>
 
     <!-- Underscore Templates -->
     <script type="text/template" id="response-entity-template">
@@ -19,6 +21,22 @@
         <p class="entity-subtitle"><%= responseTime %>ms</p>
     </script>
 
+    <script type="text/template" id="response-entity-edit-template">
+        <div class="modal">
+            <label for="entity-title"><% if (newEntity) {%>New <% } %>Entity Label</label>
+            <input id="entity-title" data-model-attr="title" type="text" value="<%= title %>" placeholder="ex. Heroku" />
+
+            <label for="entity-url">URL</label>
+            <input id="entity-url" data-model-attr="url" type="text" value="<%= url %>" placeholder="https://status.heroku.com" />
+            
+            <button id="entity-edit-save">Save</button>
+            <% if (!newEntity) { %>
+            <button id="entity-edit-delete">Delete</button>
+            <% } %>
+            <button id="entity-edit-cancel">Cancel</button>
+        </div>
+    </script>
+
     <script src="../vendor/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="../vendor/chai/chai.js"></script>
@@ -26,8 +44,6 @@
     <script src="../vendor/sinon-chai/lib/sinon-chai.js"></script>
     <script src="../vendor/sinon/lib/sinon.js"></script>
     <script src="../vendor/sinon/lib/sinon/spy.js"></script>
-    <script src="../vendor/sinon/lib/sinon/call.js"></script>
-    <script src="../vendor/sinon/lib/sinon/behavior.js"></script>
     <script src="../vendor/sinon/lib/sinon/stub.js"></script>
     <script src="../vendor/sinon/lib/sinon/mock.js"></script>
     <script src="../vendor/sinon/lib/sinon/collection.js"></script>
@@ -42,6 +58,13 @@
     <script type="text/javascript" src="../vendor/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../vendor/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="../vendor/backbone/backbone.js"></script>
+    <script type="text/javascript" src="../vendor/backbone.localStorage/backbone.localStorage.js"></script>
+    <script type="text/javascript" src="../vendor/jquery.avgrund/jquery.avgrund.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="../js/app.namespace.js"></script>
+    <script type="text/javascript" src="../js/app.router.js"></script>
+    <script type="text/javascript" src="../js/app.configs.js"></script>
 
     <!-- Utils -->
     <script type="text/javascript" src="../js/utils/utils.requestAnimationFramePolyfill.js"></script>
@@ -55,8 +78,9 @@
 
     <!-- Views -->
     <script type="text/javascript" src="../js/views/response.view.js"></script>
-    <script type="text/javascript" src="../js/views/app.view.js"></script>
-    <script type="text/javascript" src="../js/app.js"></script>
+    <script type="text/javascript" src="../js/views/header.view.js"></script>
+
+    <!-- Startup -->
 
     <script src="spec/components/responseEntity.spec.js"></script>
    

@@ -8,7 +8,7 @@
     <body>
         <div class="header">
             <div class="nav-right">
-                <button class="create-new-entity">Add</button>
+                <button class="create-new-entity">Add New Entity</button>
             </div>
         </div>
         <div class="container"></div>
@@ -23,7 +23,7 @@
 
         <script type="text/template" id="response-entity-edit-template">
             <div class="modal">
-                <label for="entity-title">Entity Label</label>
+                <label for="entity-title"><% if (newEntity) {%>New <% } %>Entity Label</label>
                 <input id="entity-title" data-model-attr="title" type="text" value="<%= title %>" placeholder="ex. Heroku" />
 
                 <label for="entity-url">URL</label>
