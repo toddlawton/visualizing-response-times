@@ -51,6 +51,7 @@ app.views.appView = Backbone.View.extend({
         var entityView = new app.views.responseView({
             model: item
         });
+        entityView.model.save();
         this.$el.append(entityView.render().el);
     }
 
