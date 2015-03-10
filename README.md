@@ -2,6 +2,11 @@
 
 A front-end tool based on Backbone.js for easily monitoring server response times at a glance.
 
+## Demonstration
+
+* Live demo http://todd.lawton.io/visualizing-response-times/
+* Tests http://todd.lawton.io/visualizing-response-times/tests
+
 ## Local setup
 
 1. Clone this respository.
