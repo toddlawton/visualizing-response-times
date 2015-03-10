@@ -1,8 +1,11 @@
-app.Router = Backbone.Router.extend({
-    routes: {
+/**
+ * Application Router
+ */
 
-    },
-    initialize: function() {
-        
-    }
+app.Router = Backbone.Router.extend({
+    
+    routes: {},
+
+    initialize: function() {}
+
 });

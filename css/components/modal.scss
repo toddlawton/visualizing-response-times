@@ -1,9 +1,6 @@
-.avgrund-ready .modal-container {
-   padding: 24px;
-   box-sizing: border-box;
-   box-shadow: none;
-   background: none;
-}
+/**
+ * Components: Modal
+ */
 
 .modal {
     color: #fff;
@@ -51,6 +48,13 @@
             border: 1px solid rgba(255,255,255,1);
         }
     }
+}
+
+.avgrund-ready .modal-container {
+   padding: 24px;
+   box-sizing: border-box;
+   box-shadow: none;
+   background: none;
 }
 
 .avgrund-ready.avgrund-active .avgrund-overlay {

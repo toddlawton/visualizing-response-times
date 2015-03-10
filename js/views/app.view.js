@@ -1,3 +1,8 @@
+/**
+ * Views: App View
+ * Main view for rendering the response entity collection
+ */
+
 app.views.appView = Backbone.View.extend({
     
     el: '.container',

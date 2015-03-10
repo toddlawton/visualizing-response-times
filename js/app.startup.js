@@ -1,3 +1,7 @@
+/**
+ * Application Bootstrap
+ */
+
 var app = app || {};
 
 $(document).ready(function(){  

@@ -15,6 +15,9 @@ body {
   -webkit-font-smoothing: antialiased; }
 
 /**
+ * Mixins: Vendor Prefix
+ */
+/**
  * Components: Response Entity
  */
 .response-entity {
@@ -82,12 +85,9 @@ body {
   -moz-transform: scale(0.5);
   -o-transform: scale(0.5); }
 
-.avgrund-ready .modal-container {
-  padding: 24px;
-  box-sizing: border-box;
-  box-shadow: none;
-  background: none; }
-
+/**
+ * Components: Modal
+ */
 .modal {
   color: #fff;
   text-align: center;
@@ -128,6 +128,12 @@ body {
       margin-right: auto; }
     .modal button:hover {
       border: 1px solid white; }
+
+.avgrund-ready .modal-container {
+  padding: 24px;
+  box-sizing: border-box;
+  box-shadow: none;
+  background: none; }
 
 .avgrund-ready.avgrund-active .avgrund-overlay {
   opacity: 0.9; }

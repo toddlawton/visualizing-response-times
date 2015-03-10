@@ -1,3 +1,8 @@
+/**
+ * Views: Header View
+ * View for header navigation
+ */
+
 app.views.headerView = Backbone.View.extend({
     
     el: '.header',
@@ -8,12 +13,13 @@ app.views.headerView = Backbone.View.extend({
         "click .create-new-entity": "openCreateDialog"
     },
 
-    initialize: function() {
-        
-    },
+    initialize: function() {},
 
     render: function() {},
 
+    /**
+     * Initialize and render a modal to create a new entity
+     */
     openCreateDialog: function() {
         var self = this;
         this.$modal = '';
@@ -32,16 +38,27 @@ app.views.headerView = Backbone.View.extend({
         });
     },
 
+    /**
+     * Bind click events to the editing modal for this entity
+     */
     bindModalEvents: function() {
         var self = this;
         this.$modal.find('#entity-edit-save').on('click', $.proxy(self.saveCreateModal, self));
         this.$modal.find('#entity-edit-cancel').on('click', self.closeCreateModal);
     },
 
+    /**
+     * Unbind click events when the modal is closed
+     */
     closeCreateModal: function() {
+        this.$modal.find('#entity-edit-save').off('click');
+        this.$modal.find('#entity-edit-cancel').off('click');
         $('.avgrund-overlay').trigger('click');
     },
 
+    /**
+     * Create this entity's model with input values and trigger a render
+     */
     saveCreateModal: function() {
         var self = this,
             newEntityAttrs = {};
@@ -49,7 +66,6 @@ app.views.headerView = Backbone.View.extend({
         $('.modal-container input').each(function(){
             var modelAttribute = $(this).data('model-attr');
             if (modelAttribute) {
-                // self.model.set(modelAttribute, $(this).val());
                 newEntityAttrs[modelAttribute] = $(this).val();
             }
         });

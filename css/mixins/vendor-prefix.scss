@@ -1,4 +1,6 @@
-// Vendor Prefix
+/**
+ * Mixins: Vendor Prefix
+ */
 
 @mixin vendor-prefix( $name, $argument ) {
     #{$name}: $argument;

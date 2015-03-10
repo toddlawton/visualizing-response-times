@@ -1,3 +1,8 @@
+/**
+ * Views: Response View
+ * View for updating data, rendering and animating a response entity
+ */
+
 app.views.responseView = Backbone.View.extend({
 
     tagName: 'div',
@@ -40,6 +45,9 @@ app.views.responseView = Backbone.View.extend({
         return this;
     },
 
+    /**
+     * Initialize and render a modal to edit this entity
+     */
     edit: function() {
         var self = this;
         this.$modal = '';
@@ -58,6 +66,9 @@ app.views.responseView = Backbone.View.extend({
         });
     },
 
+    /**
+     * Bind click events to the editing modal for this entity
+     */
     bindModalEvents: function() {
         var self = this;
         this.$modal.find('#entity-edit-save').on('click', $.proxy(self.saveEditModal, self));
@@ -65,10 +76,19 @@ app.views.responseView = Backbone.View.extend({
         this.$modal.find('#entity-edit-delete').on('click', $.proxy(self.deleteEditModal, self));
     },
 
+    /**
+     * Unbind click events when the modal is closed
+     */
     closeEditModal: function() {
+        this.$modal.find('#entity-edit-save').off('click');
+        this.$modal.find('#entity-edit-cancel').off('click');
+        this.$modal.find('#entity-edit-delete').off('click');
         $('.avgrund-overlay').trigger('click');
     },
 
+    /**
+     * Update this entity's model with input values and trigger a re-render
+     */
     saveEditModal: function() {
         var self = this;
         $('.modal-container input').each(function(){
@@ -82,6 +102,9 @@ app.views.responseView = Backbone.View.extend({
         this.closeEditModal();
     },
 
+    /**
+     * Delete this entity's model and remove the view from the DOM
+     */
     deleteEditModal: function() {
         this.model.destroy();
         this.remove();

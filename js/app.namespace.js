@@ -1,3 +1,7 @@
+/**
+ * Application Namespace
+ */
+
 var app = {
     configs: {},
     router: {},

@@ -1,3 +1,7 @@
+/**
+ * Application Configs
+ */
+
 app.configs = {
     responseThreshold: 120, // Maximum response time allowed in milliseconds
     pingRefreshInterval: 5000, // How often the server will be pinged in milliseconds
