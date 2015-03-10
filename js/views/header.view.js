@@ -44,7 +44,7 @@ app.views.headerView = Backbone.View.extend({
     bindModalEvents: function() {
         var self = this;
         this.$modal.find('#entity-edit-save').on('click', $.proxy(self.saveCreateModal, self));
-        this.$modal.find('#entity-edit-cancel').on('click', self.closeCreateModal);
+        this.$modal.find('#entity-edit-cancel').on('click', $.proxy(self.closeCreateModal, self));
     },
 
     /**

@@ -72,7 +72,7 @@ app.views.responseView = Backbone.View.extend({
     bindModalEvents: function() {
         var self = this;
         this.$modal.find('#entity-edit-save').on('click', $.proxy(self.saveEditModal, self));
-        this.$modal.find('#entity-edit-cancel').on('click', self.closeEditModal);
+        this.$modal.find('#entity-edit-cancel').on('click', $.proxy(self.closeEditModal, self));
         this.$modal.find('#entity-edit-delete').on('click', $.proxy(self.deleteEditModal, self));
     },
 
